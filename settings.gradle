@@ -1,0 +1,2 @@
+rootProject.name='AC Intagram Clone'
+include ':app'
