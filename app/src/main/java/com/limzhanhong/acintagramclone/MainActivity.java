@@ -23,7 +23,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements  View.OnClickListener  {
 
     private EditText edtTextName, edtTextYearOfExperience, edtTextProgrammingLanguage;
-    private Button btnSubmit, btnGetAllData;
+    private Button btnSubmit, btnGetAllData, btnTransition;
     private TextView txtGetData;
     private String allProgrammer;
 
@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         btnSubmit = findViewById(R.id.btnSubmit);
         btnSubmit.setOnClickListener(this);
         btnGetAllData = findViewById(R.id.btnGetAllData);
+
+        btnTransition = findViewById(R.id.btnNextActivity);
 
 
         txtGetData = findViewById(R.id.textViewGetData);
@@ -62,6 +64,9 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
 
                 allProgrammer = "";
                 ParseQuery<ParseObject> queryAll = ParseQuery.getQuery("Programmer");
+
+//                queryAll.whereGreaterThan("YearOfExperience", 10);
+//                queryAll.whereGreaterThanOrEqualTo("YearOfExperience",15);
                 queryAll.findInBackground(new FindCallback<ParseObject>() {
                     @Override
                     public void done(List<ParseObject> objects, ParseException e) {
@@ -77,6 +82,13 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
                         }
                     }
                 });
+            }
+        });
+
+        btnTransition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
 
