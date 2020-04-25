@@ -7,17 +7,25 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.SaveCallback;
 import com.shashank.sony.fancytoastlib.FancyToast;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements  View.OnClickListener  {
 
     private EditText edtTextName, edtTextYearOfExperience, edtTextProgrammingLanguage;
-    private Button btnSubmit;
+    private Button btnSubmit, btnGetAllData;
+    private TextView txtGetData;
+    private String allProgrammer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +37,48 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         edtTextProgrammingLanguage = findViewById(R.id.editTextProgrammingLanguage);
         btnSubmit = findViewById(R.id.btnSubmit);
         btnSubmit.setOnClickListener(this);
+        btnGetAllData = findViewById(R.id.btnGetAllData);
+
+
+        txtGetData = findViewById(R.id.textViewGetData);
+        txtGetData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ParseQuery<ParseObject> parseQuery = ParseQuery.getQuery("Programmer");
+                parseQuery.getInBackground("137QJleV0K", new GetCallback<ParseObject>() {
+                    @Override
+                    public void done(ParseObject object, ParseException e) {
+                        if(object != null && e == null){
+                            txtGetData.setText(object.get("Name") + " " + object.get("YearOfExperience"));
+                        }
+                    }
+                });
+            }
+        });
+
+        btnGetAllData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                allProgrammer = "";
+                ParseQuery<ParseObject> queryAll = ParseQuery.getQuery("Programmer");
+                queryAll.findInBackground(new FindCallback<ParseObject>() {
+                    @Override
+                    public void done(List<ParseObject> objects, ParseException e) {
+                        if(e == null){
+                            if(objects.size() > 0){
+                                for(ParseObject parseObject: objects){
+                                    allProgrammer += parseObject.get("Name") + " " +  parseObject.get("YearOfExperience") + " " + parseObject.get("ProgrammingLanguage") + "\n";
+                                }
+                                FancyToast.makeText(MainActivity.this, allProgrammer, FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                            } else {
+                                FancyToast.makeText(MainActivity.this, e.getMessage(), FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
+                            }
+                        }
+                    }
+                });
+            }
+        });
 
     }
 
