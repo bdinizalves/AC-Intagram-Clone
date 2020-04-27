@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/editTextUserNameSignIn"
+        android:id="@+id/editTextUserNameSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="112dp"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextPasswordSignIn"
+        android:id="@+id/editTextPasswordSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -28,7 +28,7 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextUserNameSignIn" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextUserNameSignUp" />
 
     <Button
         android:id="@+id/btnSignUp"
@@ -38,10 +38,10 @@
         android:text="Sign Up User"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPasswordSignIn" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextPasswordSignUp" />
 
     <Button
-        android:id="@+id/btnLogIn"
+        android:id="@+id/btnLogInActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"

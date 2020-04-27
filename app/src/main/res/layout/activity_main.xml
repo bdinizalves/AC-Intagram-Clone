@@ -4,92 +4,93 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="#DF483BFF"
+    android:onClick="layoutIsTapped"
+    tools:context=".SignUp">
 
     <EditText
-        android:id="@+id/editTextName"
+        android:id="@+id/editTextUserNameSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="80dp"
         android:ems="10"
-        android:hint="Enter your name"
+        android:hint="Please enter your username"
         android:inputType="textPersonName"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewInstagram" />
 
     <EditText
-        android:id="@+id/editTextProgrammingLanguage"
+        android:id="@+id/editTextPasswordSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:hint="Enter your most mastered programming language"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextYearOfExperience" />
-
-    <EditText
-        android:id="@+id/editTextYearOfExperience"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:hint="Enter your years of experience"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextName" />
-
-    <Button
-        android:id="@+id/btnSubmit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="Submit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextProgrammingLanguage" />
-
-    <TextView
-        android:id="@+id/textViewGetData"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:text="Get Data From Server"
-        android:textColor="#293EB8"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSubmit" />
-
-    <Button
-        android:id="@+id/btnGetAllData"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="20dp"
-        android:background="@android:color/holo_blue_dark"
-        android:text="Get All Data"
+        android:layout_marginEnd="80dp"
+        android:ems="10"
+        android:hint="Please enter your password"
+        android:inputType="textPersonName"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmailSignUp" />
+
+    <EditText
+        android:id="@+id/editTextEmailSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="80dp"
+        android:ems="10"
+        android:hint="Please enter your email"
+        android:inputType="textEmailAddress"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextUserNameSignUp" />
+
+    <Button
+        android:id="@+id/btnLogInActivity"
+        android:layout_width="335dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/holo_purple"
+        android:text="Log in"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewGetData" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSignUp" />
 
-    <Button
-        android:id="@+id/btnNextActivity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
-        android:text="Next Activity"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/imageViewInstagram"
+        android:layout_width="112dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="104dp"
+        android:cropToPadding="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/instagramicon" />
+
+    <Button
+        android:id="@+id/btnSignUp"
+        android:layout_width="342dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="28dp"
+        android:background="@android:color/holo_red_light"
+        android:text="Sign up"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPasswordSignUp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
